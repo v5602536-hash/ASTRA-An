@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#080d18">
+<title>GPT TRADE AI ASTRA</title>
+<style>
+:root{--bg:#080d18;--panel:#111d2b;--panel2:#17283a;--line:#245a58;--green:#13c9a4;--green2:#087f70;--gold:#f2b84b;--red:#ff654e;--muted:#9bb0bf;--text:#f3f8fa}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#243b64 0,#0a1423 42%,#070b13 100%);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif}
+.app{max-width:1100px;margin:auto;padding:14px}.top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 4px 16px;border-bottom:1px solid #25384b}
+.brand{display:flex;align-items:center;gap:10px}.logo{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#123d43,#07141e);border:1px solid #1bc9a6;color:#39e2be;font-size:25px;box-shadow:0 0 18px #10b99544}.brand h1{font-size:18px;margin:0}.brand small{color:var(--muted)}
+.pill{background:#182738;border:1px solid #2b4859;border-radius:24px;padding:8px 13px;font-size:13px;color:#d9e7ed}
+.layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.8fr);gap:14px;margin-top:15px}
+.panel{background:linear-gradient(145deg,#142638f2,#0d1927f5);border:1px solid #275052;border-radius:17px;padding:15px;box-shadow:0 10px 30px #0005}
+.panel h2{font-size:16px;margin:0 0 13px}.gold{background:linear-gradient(100deg,#63451c,#292d2d);border:1px solid #b78a38;border-radius:13px;padding:12px;display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:13px}.gold b{color:#ffda8a}.gold small{display:block;color:#e2c58e;margin-top:3px}
+button,select,input{font:inherit}button{cursor:pointer;border:0;color:white;font-weight:700;border-radius:10px;padding:12px 15px}.upgrade{background:#dcae51;color:#241b0a;padding:8px 12px}
+.field{margin:12px 0}.field label{display:block;color:var(--muted);font-size:12px;margin-bottom:7px}
+select,input{width:100%;background:#0b1724;border:1px solid #365469;border-radius:10px;color:white;padding:12px;outline:none}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.times{display:flex;gap:7px;flex-wrap:wrap}.time{flex:1;min-width:45px;background:#213446;border:1px solid #3a5967;padding:9px 5px}.time.active{background:#0b9d83;box-shadow:0 0 12px #13c9a455}
+.status{border:1px solid #159f89;background:linear-gradient(120deg,#103d3d,#102432);border-radius:14px;padding:15px;text-align:center;margin:14px 0}.orb{font-size:34px;color:#36dfbd}.status strong{display:block;font-size:17px;margin:5px}.status small{color:#a6c6cb}.progress{height:8px;background:#233b48;border-radius:10px;overflow:hidden;margin-top:13px}.progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,#08a88a,#48edc5);transition:width .5s}
+.reading{display:flex;justify-content:space-between;color:#a9bdc9;font-size:12px;margin:12px 0 7px}.bar{height:7px;border-radius:9px;background:#203542;overflow:hidden}.bar i{display:block;width:0;height:100%;background:#16c9a2;transition:width .4s}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.buy{background:linear-gradient(120deg,#0fc78d,#07835d)}.sell{background:linear-gradient(120deg,#ff7956,#d94436)}button:active{transform:scale(.98)}
+.chart{height:260px;border-radius:14px;border:1px solid #2e5260;background:linear-gradient(180deg,#172f4a,#101d30);position:relative;overflow:hidden;padding:15px}.chart:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#42607833 1px,transparent 1px),linear-gradient(90deg,#42607833 1px,transparent 1px);background-size:40px 40px}.chart svg{position:absolute;inset:25px 12px;width:calc(100% - 24px);height:calc(100% - 50px)}.charthead{position:relative;z-index:1;display:flex;justify-content:space-between;color:#b9d1df;font-size:12px}
+.balance{font-size:27px;font-weight:800;color:#fff}.green{color:#42e3b8}.muted{color:var(--muted)}.metric{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid #294050;font-size:13px}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:13px}.quick button{background:#1c3444;border:1px solid #345765;font-size:12px}
+.notice{font-size:11px;line-height:1.7;color:#91a8b5;margin-top:14px;padding:10px;border:1px dashed #395464;border-radius:10px}
+.bottom{display:flex;justify-content:space-around;margin-top:14px;padding:12px;background:#0c1724;border:1px solid #20394a;border-radius:14px;color:#a9c0cb;font-size:12px}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#173b3a;border:1px solid #20b99b;padding:12px 18px;border-radius:12px;display:none;z-index:9;max-width:90%;text-align:center}
+@media(max-width:760px){.app{padding:10px}.layout{grid-template-columns:1fr}.top{flex-wrap:wrap}.chart{height:220px}.brand h1{font-size:16px}}
+</style>
+</head>
+<body>
+<div class="app">
+ <header class="top">
+  <div class="brand"><div class="logo">✧</div><div><h1>GPT TRADE AI ASTRA</h1><small>AI Trading Assistant · Demo</small></div></div>
+  <div class="pill">● النظام التجريبي نشط</div>
+  <div class="pill">💎 ASTRA</div>
+ </header>
+ <main class="layout">
+  <section>
+   <div class="panel">
+    <div class="gold"><div><b>Level GPT-6 Astra</b><small>تحليل السوق · إدارة المخاطر · قراءة المؤشرات</small></div><button class="upgrade" onclick="notify('هذه نسخة تجريبية من الواجهة')">ASTRA PRO</button></div>
+    <h2>⚙️ إعدادات التداول</h2>
+    <div class="field"><label>زوج العملات</label><select id="pair"><option>EUR/USD OTC</option><option>GBP/USD OTC</option><option>USD/JPY OTC</option><option>EUR/GBP</option><option>BTC/USD</option></select></div>
+    <div class="field"><label>وقت انتهاء الصفقة</label><div class="times" id="times"><button class="time active">5s</button><button class="time">15s</button><button class="time">30s</button><button class="time">1m</button><button class="time">5m</button><button class="time">15m</button></div></div>
+    <div class="row">
+     <div class="field"><label>مبلغ الصفقة التجريبي ($)</label><input id="amount" type="number" min="1" value="10"></div>
+     <div class="field"><label>الرصيد التجريبي ($)</label><input id="balanceInput" type="number" value="10000" min="0"></div>
+    </div>
+    <div class="status"><div class="orb">◎</div><strong id="statusTitle">ASTRA جاهز للتحليل</strong><small id="statusSub">اضغط «تحليل السوق» لبدء المحاكاة</small><div class="progress"><span id="progress"></span></div></div>
+    <button style="width:100%;background:linear-gradient(90deg,#0cb994,#087c78)" onclick="analyze()">✦ تحليل السوق بالذكاء الاصطناعي</button>
+    <div class="reading"><span>قراءة المؤشرات</span><span id="readCount">0 / 8</span></div><div class="bar"><i id="readBar"></i></div>
+    <div class="actions"><button class="buy" onclick="trade('BUY')">▲ BUY / شراء</button><button class="sell" onclick="trade('SELL')">▼ SELL / بيع</button></div>
+    <div class="notice">تنبيه: الأزرار والنتائج في هذه النسخة للعرض والمحاكاة فقط. لا توجد أسعار سوق مباشرة ولا يتم إرسال أو تنفيذ أوامر لدى وسيط تداول.</div>
+   </div>
+   <div class="bottom"><span>◉ الإشارات</span><span>♧ التعلم</span><span>⚙ الإعدادات</span></div>
+  </section>
+  <aside>
+   <div class="panel">
+    <h2>📈 مخطط السوق</h2>
+    <div class="chart"><div class="charthead"><span id="chartPair">EUR/USD OTC</span><span class="green">DEMO</span></div>
+     <svg viewBox="0 0 500 220" preserveAspectRatio="none"><defs><linearGradient id="fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#15d5ac" stop-opacity=".35"/><stop offset="1" stop-color="#15d5ac" stop-opacity="0"/></linearGradient></defs><path d="M0 150 L25 135 L45 145 L70 105 L92 118 L115 88 L140 100 L165 68 L190 83 L215 55 L240 72 L265 45 L290 60 L315 30 L340 52 L365 25 L390 42 L415 18 L440 38 L465 15 L500 22 L500 220 L0 220Z" fill="url(#fill)"/><polyline points="0,150 25,135 45,145 70,105 92,118 115,88 140,100 165,68 190,83 215,55 240,72 265,45 290,60 315,30 340,52 365,25 390,42 415,18 440,38 465,15 500,22" fill="none" stroke="#35dfba" stroke-width="3" vector-effect="non-scaling-stroke"/></svg>
+    </div>
+    <div class="metric"><span class="muted">الرصيد</span><b class="balance" id="balance">$10,000.00</b></div>
+    <div class="metric"><span class="muted">حالة النظام</span><b class="green">متصل · تجريبي</b></div>
+    <div class="metric"><span class="muted">عدد الصفقات</span><b id="trades">0</b></div>
+    <div class="metric"><span class="muted">نتيجة المحاكاة</span><b id="profit" class="green">$0.00</b></div>
+    <div class="quick"><button onclick="notify('قريباً: سجل الإشارات')">الإشارات</button><button onclick="notify('قريباً: سجل الصفقات')">السجل</button><button onclick="notify('قريباً: الإعدادات')">الإعدادات</button></div>
+   </div>
+   <div class="panel" style="margin-top:14px"><h2>🧠 ASTRA AI</h2><p class="muted" style="font-size:13px;line-height:1.8;margin-bottom:0">واجهة مساعدة لعرض التحليل التجريبي ومؤشرات السوق. يلزم ربط مزود بيانات وأسعار حقيقي قبل استخدام أي تحليل مباشر.</p></div>
+  </aside>
+ </main>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+let selectedTime='5s', tradeCount=0, demoProfit=0, busy=false;
+document.querySelectorAll('.time').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.time').forEach(x=>x.classList.remove('active'));b.classList.add('active');selectedTime=b.textContent}));
+document.getElementById('pair').addEventListener('change',e=>document.getElementById('chartPair').textContent=e.target.value);
+function notify(t){let el=document.getElementById('toast');el.textContent=t;el.style.display='block';setTimeout(()=>el.style.display='none',2600)}
+function analyze(){if(busy)return;busy=true;let n=0;document.getElementById('statusTitle').textContent='جارٍ تحليل السوق...';document.getElementById('statusSub').textContent='محاكاة قراءة 8 مؤشرات';let timer=setInterval(()=>{n++;document.getElementById('progress').style.width=(n*12.5)+'%';document.getElementById('readBar').style.width=(n*12.5)+'%';document.getElementById('readCount').textContent=n+' / 8';if(n>=8){clearInterval(timer);busy=false;document.getElementById('statusTitle').textContent='اكتمل التحليل التجريبي';document.getElementById('statusSub').textContent='هذه نتيجة شكلية وليست إشارة تداول حقيقية';notify('اكتملت المحاكاة التجريبية')}} ,350)}
+function trade(side){let amount=Number(document.getElementById('amount').value),bal=Number(document.getElementById('balanceInput').value);if(!Number.isFinite(amount)||amount<=0){notify('أدخل مبلغاً صحيحاً');return}if(amount>bal){notify('المبلغ أكبر من الرصيد التجريبي');return}tradeCount++;let result=(Math.random()>.5?1:-1)*amount*.0;demoProfit+=result;document.getElementById('trades').textContent=tradeCount;document.getElementById('profit').textContent='$'+demoProfit.toFixed(2);notify('تم تسجيل '+side+' في سجل العرض فقط — لا توجد صفقة حقيقية')}
+</script>
+</body>
+</html>
